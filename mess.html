@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.box{
+		width:500px;height:400px;
+		border: 1px solid #000;
+		position: fixed;
+		top:0;left:0;right:0;bottom:0;
+		margin:auto;
+	}
+	.title{
+		width:100%;height:50px;
+		background: #eee;
+		text-align: center;
+		line-height: 50px;
+		font-size: 30px;
+	}
+	.show{
+		width:100%;height:350px;
+		text-align: center;
+		line-height: 350px;
+		font-size: 24px;
+	}
+</style>
+<script>
+	window.onload=function(){
+		var span=document.querySelector("span");
+		var t=setInterval(move,1000);
+		var num=span.innerHTML;
+		var url=document.querySelector("a").href;
+		function move(){
+			num--;
+			span.innerHTML=num;
+			if(num==0){
+				clearInterval(t);
+				location.href=url;
+			}
+		}
+	}
+</script>
+<body>
+	<div class="box">
+		<div class="title"><?php echo $masseige?></div>
+		<div class="show">
+			<span>3</span>秒后跳转
+			如果不跳转请<a href="<?php echo $url?>">点击</a>
+		</div>
+	</div>
+</body>
+</html>
